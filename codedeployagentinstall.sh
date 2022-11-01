@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo apt update
 sudo apt install ruby-full -y
 sudo apt install wget
