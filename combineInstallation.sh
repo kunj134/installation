@@ -25,6 +25,7 @@ cd ~
 # Unified Cloudwatch Agent Installation
 #################################################################################################################################
 
+#!/bin/bash
 sudo wget https://s3.us-east-2.amazonaws.com/amazoncloudwatch-agent-us-east-2/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb
 sudo dpkg -i -E ./amazon-cloudwatch-agent.deb
 #sudo aws configure --profile AmazonCloudWatchAgent
@@ -49,4 +50,12 @@ sudo ./install auto
 # To verify installation execute below command
 # sudo service codedeploy-agent status
 
-#################################################################################################################
+#################################################################################################################################
+# Packer installation
+#################################################################################################################################
+
+#!/bin/bash
+curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+sudo apt-get update && sudo apt-get install packer
+
