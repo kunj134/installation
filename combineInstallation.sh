@@ -53,21 +53,24 @@ sudo ./install auto
 #################################################################################################################################
 # Packer installation
 #################################################################################################################################
-
+cat <<EOF > mongo_install.sh
 #!/bin/bash
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 sudo apt-get update && sudo apt-get install packer
-
+EOF
 # Verifying the Installation
 # packer
 
 #################################################################################################################################
 # Ansible installation
 #################################################################################################################################
+cat <<EOF > mongo_install.sh
+#!/bin/bash
 sudo apt-add-repository ppa:ansible/ansible
 sudo apt update
 sudo apt install ansible -y
+EOF
 
 #################################################################################################################################
 # MongoDB Installation
