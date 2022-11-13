@@ -140,3 +140,20 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 # docker-compose --version
 EOF
+
+#################################################################################################################################
+# Docker Compose Demo
+#################################################################################################################################
+
+file="$HOME/compose-demo/docker-compose.yml"
+cat <<EOF > docker-compose.yml
+version: '3.7'
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "8000:80"
+    volumes:
+      - ./app:/usr/share/nginx/html
+EOF
+cat $file
