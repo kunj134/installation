@@ -117,4 +117,7 @@ sudo systemctl stop docker.service
 sudo systemctl disable docker.service
 sudo systemctl enable docker.service
 sudo systemctl start docker.service
+# sudo docker run hello-world # to list demo images & container 
+# sudo docker images
+# sudo docker ps -a # sudo docker ps
 EOF
