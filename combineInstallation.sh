@@ -53,7 +53,7 @@ sudo ./install auto
 #################################################################################################################################
 # Packer installation
 #################################################################################################################################
-cat <<EOF > mongo_install.sh
+cat <<EOF > packerinstall.sh
 #!/bin/bash
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
@@ -94,4 +94,27 @@ apt-key list
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
 sudo apt update 
 sudo apt install mongodb-org -y
+EOF
+
+
+#################################################################################################################################
+# Docker Installation
+#################################################################################################################################
+cat <<EOF > dockerinstall.sh
+sudo apt-get remove docker docker.io -y
+sudo apt-get remoce docker-engine
+sudo apt-get update -y
+sudo apt install docker.io -y
+sudo snap install docker
+EOF
+
+
+#################################################################################################################################
+# Post Docker Installation
+#################################################################################################################################
+cat <<EOF > postdockerinstall.sh
+sudo systemctl stop docker.service
+sudo systemctl disable docker.service
+sudo systemctl enable docker.service
+sudo systemctl start docker.service
 EOF
