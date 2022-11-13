@@ -108,7 +108,6 @@ sudo apt install docker.io -y
 sudo snap install docker
 EOF
 
-
 #################################################################################################################################
 # Post Docker Installation
 #################################################################################################################################
@@ -121,3 +120,14 @@ sudo systemctl start docker.service
 # sudo docker images
 # sudo docker ps -a # sudo docker ps
 EOF
+
+#################################################################################################################################
+# AWS cli Installation
+#################################################################################################################################
+cat <<EOF > awscliinstall.sh
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo apt install zip -y
+unzip awscliv2.zip
+sudo ./aws/install
+
+
